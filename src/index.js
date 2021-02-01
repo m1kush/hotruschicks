@@ -1,5 +1,6 @@
 import Paddle from "./paddle.js";
 import InputHandler from "./input.js";
+import Ball from "./ball.js";
 
 function gameLoop(timestamp) {
     //deltatime
@@ -9,13 +10,13 @@ function gameLoop(timestamp) {
     //tutaj są rzeczy które się dzieją co klatkę
 
     //tło xd
-    context.clearRect(0, 0, 800, 600);
+    context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
     context.drawImage(mordaKupisza, 0, 0, GAME_WIDTH, GAME_HEIGHT);
 
     paddle.update(deltaTime);
     paddle.draw(context);
 
-    context.drawImage(imgBall, 10, 10);
+    ball.draw(context);
 
     //nie wiem
     requestAnimationFrame(gameLoop);
@@ -33,8 +34,10 @@ new InputHandler(paddle);
 
 let lastTime = 0;
 
-//images
-let imgBall = document.getElementById("img_ball");
+//mordy kupisza itd
+let ball = new Ball();
 let mordaKupisza = document.getElementById("mordaKupisza");
-gameLoop();
+
+//game loop
+requestAnimationFrame(gameLoop);
 
