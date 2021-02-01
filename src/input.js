@@ -8,6 +8,8 @@ export default class InputHandler {
                 case 39:
                     paddle.moveRight();
                     break;
+                default:
+                    alert("fajnie że sobie klikasz xd dawaj hajs za skiny");
             }
         });
 
