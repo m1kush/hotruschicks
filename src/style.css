@@ -1,21 +1,17 @@
-#gameScreen
-{
+#gameScreen {
     border: 1px solid black;
 }
 
-img
-{
+img {
     display: none;
 }
 
-#header
-{
+#header {
     width: 100%;
     height: 200px;
 }
 
-#ngl
-{
+#ngl {
     font-size: 50px;
     font-style: italic;
     font-family: Consolas, serif;
@@ -29,35 +25,29 @@ img
     border-radius: 10px 10px 10px 10px;
 }
 
-#nglgl
-{
+#nglgl {
     font-size: 30px;
     font-style: italic;
     font-family: Consolas, serif;
     text-align: center;
 }
 
-body
-{
-    /*background-image: url("/assets/kupisze/kupisz1.jpg");*/
+body {
     background-image: linear-gradient(90deg, darkviolet, deeppink, yellow);
     margin: 0 !important;
     padding-top: 20px;
 }
 
-#container
-{
+#container {
     width: 100%;
     text-align: center;
 }
 
-#gameScreen
-{
+#gameScreen {
     display: inline;
 }
 
-#footLettuce
-{
+#footLettuce {
     width: 100%;
     background-color: #333;
     color: white;

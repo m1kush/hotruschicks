@@ -9,7 +9,7 @@ export default class Paddle {
         this.color = "#00ffff";
         this.xspeed = 0;
         this.maxSpeed = 30;
-        this.gameWidth=game.gameWidth;
+        this.gameWidth = game.gameWidth;
     }
 
     draw(context) {
@@ -19,25 +19,23 @@ export default class Paddle {
 
     update(deltaTime) {
         this.position.x += this.xspeed / deltaTime;
-        if(this.position.x<0)
-        {
-            this.position.x=0;
+        if (this.position.x < 0) {
+            this.position.x = 0;
         }
-        if(this.position.x>this.gameWidth-this.width)
-        {
-            this.position.x = this.gameWidth-this.width;
+        if (this.position.x > this.gameWidth - this.width) {
+            this.position.x = this.gameWidth - this.width;
         }
     }
 
-    moveLeft(){
+    moveLeft() {
         this.xspeed = -this.maxSpeed;
     }
 
-    moveRight(){
+    moveRight() {
         this.xspeed = this.maxSpeed;
     }
 
-    stop(){
+    stop() {
         this.xspeed = 0;
     }
 }
