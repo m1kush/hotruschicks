@@ -57,3 +57,8 @@ body {
     text-align: center;
     float: bottom;
 }
+
+#scamlink {
+    text-decoration:none;
+    color: white;
+}
