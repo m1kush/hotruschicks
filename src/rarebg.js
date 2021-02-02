@@ -31,8 +31,8 @@ export default class RareBG {
     draw(context) {
         context.fillStyle = this.color;
         context.fillRect(this.position.x, this.position.y, this.width, this.height);
-        let fontSize = this.height / 3.2;
-        context.font = fontSize.toString()+"px Consolas";
+        let fontSize = this.height / 3.4;
+        context.font = fontSize.toString()+"px Verdana";
         if(this.stattrak) {
             context.fillStyle = "gold";
         } else {

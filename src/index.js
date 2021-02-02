@@ -13,12 +13,10 @@ function gameLoop(timestamp) {
 
     // testItem.draw(context);
     // testItem2.draw(context);
+    itemy.update(deltaTime);
     itemy.draw(context);
-
-    //gra
-    // game.update(deltaTime);
-    // game.draw(context);
-    //testItem.move(-5/deltaTime);
+    context.fillStyle = "red";
+    context.fillRect(canvasWidth/2-1, 0, 2, canvasHeight);
 
     //nie wiem
     requestAnimationFrame(gameLoop);
@@ -33,16 +31,11 @@ let canvasHeight = canvasWidth/2.5;
 context.canvas.width = canvasWidth;
 context.canvas.height = canvasHeight;
 
-//mordy kupisza itd
-// let mordaKupisza = document.getElementById("mordaKupisza");
-// let mordaKupisza2 = document.getElementById("mordaKupisza2");
-// let testItem = new Item(canvasWidth, {x: 20, y: (canvasWidth/2.5-canvasWidth/5)/2}, mordaKupisza2, "Kupisz but better", 2, 2, true);
-// let testItem2 = new Item(canvasWidth, {x: 20 + canvasWidth / 4, y: (canvasWidth/2.5-canvasWidth/5)/2}, mordaKupisza, "Kupisz", 1, 1, false);
-
+//itemy
 let itemy = new Items(canvasWidth);
-itemy.test();
-//game loop
-//let game = new Game(canvasWidth, canvasHeight);
+//itemy.test();
+
+//animationLoop
 let lastTime = 0;
 requestAnimationFrame(gameLoop);
 

@@ -31,7 +31,7 @@ let nazwyMordKupisza = [
     "Spalony Kupisz",
     "Kupisz Blond",
     "Imprezowy Kupisz",
-    "Demotywujący Kupisz",
+    "Demot Kupisz",
     "Morda Kupisza MK 1",
     "EzKupisz",
     "Kupisz na koniu",
@@ -44,7 +44,7 @@ let nazwyMordKupisza = [
 
 function generateItems(canvasWidth) {
     let itemy = [];
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 150; i++) {
         let newItem = new RandomItem();
         itemy.push(new Item(canvasWidth, {
             x: /*canvasWidth*/ + i * canvasWidth / 4.5,
@@ -110,6 +110,8 @@ export default class Items {
     constructor(canvasWidth) {
         //każdy ciąg itemów ma konkretną ich ilość
         this.itemy = generateItems(canvasWidth);
+        this.speed = 100/225*canvasWidth;
+        this.deceleration = 0.1/1125*canvasWidth;
     }
 
     test() {
@@ -122,5 +124,16 @@ export default class Items {
 
     draw(context) {
         this.itemy.forEach((item) => item.draw(context));
+    }
+
+    update(deltaTime) {
+        //console.log(this.itemy[0].position.x);
+        if(this.speed!==0) {
+            this.move(this.speed/deltaTime);
+            this.speed-=this.deceleration*deltaTime;
+            if(this.speed<0) {
+                this.speed = 0;
+            }
+        }
     }
 }
