@@ -110,8 +110,9 @@ export default class Items {
     constructor(canvasWidth) {
         //każdy ciąg itemów ma konkretną ich ilość
         this.itemy = generateItems(canvasWidth);
-        this.speed = 100/225*canvasWidth;
-        this.deceleration = 0.1/1125*canvasWidth;
+        this.speed = 75/225*canvasWidth;
+        this.deceleration = 0.08/1125*canvasWidth;
+        this.canvasWidth=canvasWidth;
     }
 
     test() {
@@ -123,7 +124,11 @@ export default class Items {
     }
 
     draw(context) {
-        this.itemy.forEach((item) => item.draw(context));
+        this.itemy.forEach((item) => {
+            if(-this.canvasWidth<item.position.x &&  item.position.x<this.canvasWidth*2) {
+                item.draw(context)
+            }
+        });
     }
 
     update(deltaTime) {
