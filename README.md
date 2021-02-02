@@ -1,3 +1,3 @@
 # hotruschicks.fun
 good seit pls visit
-![](https://cdn.discordapp.com/attachments/490264582888226828/805429122360803338/maplegifwaybetter.gif)
+![](https://cdn.discordapp.com/attachments/418496792162861056/806061517564936212/rzyt.gif)
