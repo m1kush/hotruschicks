@@ -30,7 +30,6 @@ let mordaKupisza = document.getElementById("mordaKupisza");
 
 //game loop
 let game = new Game(GAME_WIDTH, GAME_HEIGHT);
-game.start();
 let lastTime = 0;
 requestAnimationFrame(gameLoop);
 
