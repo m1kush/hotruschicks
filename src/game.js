@@ -46,7 +46,7 @@ export default class Game {
             context.rect(0, 0, this.gameWidth, this.gameHeight);
             context.fillStyle = "rgba(0,0,0,0.5)";
             context.fill();
-            context.font = "30px Arial";
+            context.font = "30px Consolas";
             context.fillStyle = "white";
             context.textAlign = "center";
             context.fillText("Paused", this.gameWidth / 2, this.gameHeight / 2);

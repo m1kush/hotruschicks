@@ -1,5 +1,5 @@
 import Game from "./game.js";
-import ItemImage from "./itemimage.js";
+import Item from "./item.js";
 
 function gameLoop(timestamp) {
     //deltatime
@@ -11,13 +11,14 @@ function gameLoop(timestamp) {
     //tło xd
     context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
    // context.drawImage(mordaKupisza, 0, 0, GAME_WIDTH, GAME_HEIGHT);
-    testitem.draw(context);
+
+    testItem.draw(context);
+    testItem2.draw(context);
 
     //gra
     game.update(deltaTime);
     game.draw(context);
-    lel++;
-    testitem.move(-5/deltaTime)
+    //testItem.move(-5/deltaTime);
 
     //nie wiem
     requestAnimationFrame(gameLoop);
@@ -31,9 +32,9 @@ const GAME_HEIGHT = 600;
 
 //mordy kupisza itd
 let mordaKupisza = document.getElementById("mordaKupisza");
-let testitem = new ItemImage(GAME_WIDTH, mordaKupisza, {x: 20, y: 20});
-let lel=0;
-
+let mordaKupisza2 = document.getElementById("mordaKupisza2");
+let testItem = new Item(GAME_WIDTH, {x: 20, y: 300}, mordaKupisza2,  "Kupisz but better", 2,2, true);
+let testItem2 = new Item(GAME_WIDTH, {x: 20+GAME_WIDTH/4, y: 300}, mordaKupisza, "Kupisz", 1, 1, false);
 //game loop
 let game = new Game(GAME_WIDTH, GAME_HEIGHT);
 let lastTime = 0;
