@@ -3,7 +3,7 @@
     border-radius: 10px 10px 10px 10px;
 }
 
-img {
+.btg {
     display: none;
 }
 
@@ -68,8 +68,15 @@ a {
     text-decoration: none;
 }
 
+#steam {
+    color: red;
+    background: transparent;
+    border: none;
+}
+
 #steamlogin {
-    color: black;
+    color: red;
+    background: transparent;
 }
 
 #przyciski {
