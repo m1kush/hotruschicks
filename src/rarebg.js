@@ -11,7 +11,7 @@ function processQuality(quality) {
     if(quality === 2) return "Minimal Wear";
     if(quality === 3) return "Field-Tested";
     if(quality === 4) return "Well-Worn";
-    if(quality === 5) return "Battle-Scared";
+    if(quality === 5) return "Battle-Scarred";
 }
 
 export default class RareBG {
@@ -20,11 +20,10 @@ export default class RareBG {
         this.height = this.width / 5;
         this.position = {x: position.x, y: position.y + this.width * 4/5};
         this.name = itemName;
-        if(stattrak) {
-            this.name+=" (StatTrak)";
-        }
         this.color = processRarity(rarity);
         this.quality = processQuality(quality);
+        this.rarity = rarity;
+        this.rawquality = quality;
         this.stattrak = stattrak;
     }
 
@@ -39,9 +38,13 @@ export default class RareBG {
             context.fillStyle = "white";
         }
         context.textAlign = "left";
-        context.fillText(this.name, this.position.x+fontSize/2, this.position.y+fontSize);
+        let outputName = this.name;
+        if(this.stattrak) {
+            outputName+=" (StatTrak)";
+        }
+        context.fillText(outputName, this.position.x+fontSize/2, this.position.y+fontSize*1.2);
         context.fillStyle = "white";
-        context.fillText(this.quality, this.position.x+fontSize/2, this.position.y+fontSize*2.5);
+        context.fillText(this.quality, this.position.x+fontSize/2, this.position.y+fontSize*2.7);
     }
 
     move(distance) {

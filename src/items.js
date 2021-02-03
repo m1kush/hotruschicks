@@ -44,7 +44,7 @@ let nazwyMordKupisza = [
 
 function generateItems(canvasWidth) {
     let itemy = [];
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 75; i++) {
         let newItem = new RandomItem();
         itemy.push(new Item(canvasWidth, {
             x: canvasWidth + i * canvasWidth / 4.5,
@@ -58,12 +58,6 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-const STATE  = {
-    IDLE: 0,
-    ANIMATION: 1,
-    DROPPED: 2
 }
 
 class RandomItem {
@@ -119,7 +113,8 @@ export default class Items {
         this.speed = 75/225*canvasWidth;
         this.deceleration = 0.08/1125*canvasWidth;
         this.canvasWidth = canvasWidth;
-        this.state = STATE.IDLE;
+        this.opacity=5;
+        this.fadingSpeed=0.005;
     }
 
     test() {
@@ -131,25 +126,34 @@ export default class Items {
     }
 
     draw(context) {
+        let globAlpha = context.globalAlpha;
+        context.globalAlpha = this.opacity;
         this.itemy.forEach((item) => {
             if(-this.canvasWidth<item.position.x &&  item.position.x<this.canvasWidth*2) {
                 item.draw(context)
             }
         });
+        context.globalAlpha = globAlpha;
+    }
+
+    fade(deltaTime) {
+        this.opacity-=deltaTime*this.fadingSpeed;
+        if(this.opacity<0) {
+            this.opacity = 0;
+        }
     }
 
     update(deltaTime) {
-        if(this.state===STATE.ANIMATION) {
+        if(this.speed!==0) {
             this.move(this.speed/deltaTime);
             this.speed-=this.deceleration*deltaTime;
             if(this.speed<0) {
                 this.speed = 0;
-                this.state = STATE.DROPPED;
             }
         }
     }
 
-    drop() {
-        this.state=STATE.ANIMATION;
+    retrieveItem() {
+        return this.itemy[Math.floor((this.canvasWidth/2-this.itemy[0].position.x)/(this.canvasWidth/4.5))];
     }
 }

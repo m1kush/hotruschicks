@@ -1,4 +1,4 @@
-import Items from "./items.js";
+import Case from "./case.js";
 
 function gameLoop(timestamp) {
     //deltatime
@@ -6,24 +6,18 @@ function gameLoop(timestamp) {
     lastTime = timestamp;
 
     //tutaj są rzeczy które się dzieją co klatkę
-
-    //tło xd
+    //czyszczenie ekranu
     context.clearRect(0, 0, canvasWidth, canvasHeight);
-    // context.drawImage(mordaKupisza, 0, 0, canvasWidth, canvasHeight);
+    //rysowanie i update stanu skrzynki
+    skrzynka.update(deltaTime);
+    skrzynka.draw(context);
 
-    // testItem.draw(context);
-    // testItem2.draw(context);
-    itemy.update(deltaTime);
-    itemy.draw(context);
-    context.fillStyle = "red";
-    context.fillRect(canvasWidth/2-1, 0, 2, canvasHeight);
-
-    //nie wiem
+    //kolejna klatka
     requestAnimationFrame(gameLoop);
 }
 
 function drop() {
-    itemy.drop();
+    skrzynka.drop();
 }
 
 //canvas setup
@@ -36,9 +30,8 @@ context.canvas.width = canvasWidth;
 context.canvas.height = canvasHeight;
 
 //itemy
-let itemy = new Items(canvasWidth);
+let skrzynka = new Case(canvasWidth);
 document.getElementById("dropButton").onclick = drop;
-//itemy.test();
 
 //animationLoop
 let lastTime = 0;
