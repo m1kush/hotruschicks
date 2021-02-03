@@ -59,9 +59,17 @@ body {
     float: bottom;
 }
 
-.scamlink {
+a {
     text-decoration:none;
+}
+
+#scamlink {
     color: white;
+    text-decoration: none;
+}
+
+#steamlogin {
+    color: black;
 }
 
 #przyciski {
