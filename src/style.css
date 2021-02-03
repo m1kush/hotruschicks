@@ -9,7 +9,7 @@
 
 #header {
     width: 100%;
-    height: 200px;
+    height: 120px;
 }
 
 #ngl {
@@ -26,15 +26,8 @@
     border-radius: 10px 10px 10px 10px;
 }
 
-#nglgl {
-    font-size: 30px;
-    font-style: italic;
-    font-family: Consolas, serif;
-    text-align: center;
-}
-
 body {
-    background-image: linear-gradient(90deg, darkviolet, deeppink, yellow);
+    background-image: linear-gradient(90deg, #9400d3, deeppink, #ffff00);
     margin: 0 !important;
     padding-top: 20px;
 }
@@ -51,12 +44,21 @@ body {
 #footLettuce {
     width: 100%;
     background-color: #333;
+    height: 31px;
     color: white;
     font-size: 20px;
     font-family: Consolas, serif;
     font-style: italic;
     text-align: center;
     float: bottom;
+    margin-top:40px;
+    vertical-align: middle;
+}
+
+span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
 }
 
 a {
@@ -71,7 +73,7 @@ a {
 #steam {
     background: transparent;
     border: none;
-    float:right;
+    float:left;
 }
 
 #steamlogin {
@@ -82,4 +84,46 @@ a {
     width: 20%;
     text-align: center;
     margin: auto;
+}
+
+#srodek {
+    width: 70%;
+    height:60px;
+    float:left;
+    font-size: 30px;
+    font-style: italic;
+    font-family: Consolas, serif;
+    text-align: center;
+}
+
+.bok {
+    width: 15%;
+    height: 60px;
+    float: left;
+}
+#header2 {
+    width: 100%;
+}
+
+#dropButton {
+    box-shadow: 0 0 10px 0 #000000;
+    background: #9400d3 linear-gradient(to bottom, #9400d3 5%, #ffff00 100%);
+    border-radius:42px;
+    border:2px solid #000000;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family: Verdana, serif;
+    font-size:20px;
+    padding:16px 32px;
+    text-decoration:none;
+    text-shadow:2px 2px 3px #000000;
+    margin-top: 10px;
+}
+#dropButton:hover {
+    background: #ffff00 linear-gradient(to bottom, #ffff00 5%, #9400d3 100%);
+}
+#dropButton:active {
+    position:relative;
+    top:1px;
 }

@@ -46,7 +46,6 @@ export default class Case {
             let newQuality = this.retrieved.rareBG.rawquality;
             let newStattrak = this.retrieved.rareBG.stattrak;
             this.retrieved = new Item(newCanvasWidth, newPosition, newImage, newName, newRarity, newQuality, newStattrak);
-            //console.log("Otrzymany:", this.retrieved.rareBG.name, this.retrieved.rareBG.color, this.retrieved.rareBG.quality, this.retrieved.rareBG.stattrak);
             this.state = STATE.FADEOUT;
         }
         if (this.state === STATE.FADEOUT) {

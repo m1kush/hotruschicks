@@ -14,10 +14,17 @@ export default class ItemImage {
         if (this.stattrak) {
             context.drawImage(this.stattrakImg, this.position.x + this.width * 4 / 5, this.position.y + this.height * 3 / 4, this.width / 5, this.width / 5);
         }
-        if (this.quality !== 1) {
-            let przyciemnienie = 0.1 * this.quality;
-            context.fillStyle = "rgba(0, 0, 0, " + przyciemnienie.toString() + ")";
-            context.fillRect(this.position.x, this.position.y, this.width, this.height);
+        if (this.quality === 2) {
+            context.drawImage(document.getElementById("scratches1"), this.position.x, this.position.y, this.width, this.height + 1);
+        }
+        if (this.quality === 3) {
+            context.drawImage(document.getElementById("scratches2"), this.position.x, this.position.y, this.width, this.height + 1);
+        }
+        if (this.quality === 4) {
+            context.drawImage(document.getElementById("scratches3"), this.position.x, this.position.y, this.width, this.height + 1);
+        }
+        if (this.quality === 5) {
+            context.drawImage(document.getElementById("scratches4"), this.position.x, this.position.y, this.width, this.height + 1);
         }
     }
 
