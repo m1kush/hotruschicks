@@ -4,7 +4,7 @@ import RareBG from "./rarebg.js";
 export default class Item {
     constructor(canvasWidth, position, image, itemName, rarity, quality, stattrak) {
         this.position = position;
-        this.image = new ItemImage(canvasWidth, image, position);
+        this.image = new ItemImage(canvasWidth, image, position, quality, stattrak);
         this.rareBG = new RareBG(canvasWidth, rarity, position, itemName, quality, stattrak);
     }
 
