@@ -47,7 +47,7 @@ function generateItems(canvasWidth) {
     for (let i = 0; i < 150; i++) {
         let newItem = new RandomItem();
         itemy.push(new Item(canvasWidth, {
-            x: /*canvasWidth*/ + i * canvasWidth / 4.5,
+            x: canvasWidth + i * canvasWidth / 4.5,
             y: (canvasWidth / 2.5 - canvasWidth / 5) / 2
         }, mordyKupisza[newItem.itemNumber], nazwyMordKupisza[newItem.itemNumber], newItem.rarity, newItem.wear, newItem.stattrak));
     }
@@ -58,6 +58,12 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const STATE  = {
+    IDLE: 0,
+    ANIMATION: 1,
+    DROPPED: 2
 }
 
 class RandomItem {
@@ -112,7 +118,8 @@ export default class Items {
         this.itemy = generateItems(canvasWidth);
         this.speed = 75/225*canvasWidth;
         this.deceleration = 0.08/1125*canvasWidth;
-        this.canvasWidth=canvasWidth;
+        this.canvasWidth = canvasWidth;
+        this.state = STATE.IDLE;
     }
 
     test() {
@@ -132,13 +139,17 @@ export default class Items {
     }
 
     update(deltaTime) {
-        //console.log(this.itemy[0].position.x);
-        if(this.speed!==0) {
+        if(this.state===STATE.ANIMATION) {
             this.move(this.speed/deltaTime);
             this.speed-=this.deceleration*deltaTime;
             if(this.speed<0) {
                 this.speed = 0;
+                this.state = STATE.DROPPED;
             }
         }
+    }
+
+    drop() {
+        this.state=STATE.ANIMATION;
     }
 }

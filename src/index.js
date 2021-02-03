@@ -22,6 +22,10 @@ function gameLoop(timestamp) {
     requestAnimationFrame(gameLoop);
 }
 
+function drop() {
+    itemy.drop();
+}
+
 //canvas setup
 let canvas = document.getElementById("gameScreen");
 let context = canvas.getContext("2d");
@@ -33,6 +37,7 @@ context.canvas.height = canvasHeight;
 
 //itemy
 let itemy = new Items(canvasWidth);
+document.getElementById("dropButton").onclick = drop;
 //itemy.test();
 
 //animationLoop
