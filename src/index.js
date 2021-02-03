@@ -32,6 +32,7 @@ context.canvas.height = canvasHeight;
 //itemy
 let skrzynka = new Case(canvasWidth);
 document.getElementById("dropButton").onclick = drop;
+document.getElementById("steamlogin").height = "50";
 
 //animationLoop
 let lastTime = 0;

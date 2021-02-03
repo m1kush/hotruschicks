@@ -69,13 +69,12 @@ a {
 }
 
 #steam {
-    color: red;
     background: transparent;
     border: none;
+    float:right;
 }
 
 #steamlogin {
-    color: red;
     background: transparent;
 }
 

@@ -17,15 +17,15 @@ export default class Case {
         this.canvasWidth = canvasWidth;
         this.state = STATE.IDLE;
         this.retrieved = null;
-        this.retrievedOpacity=0;
-        this.retrievedFadeInSpeed=0.0025;
+        this.retrievedOpacity = 0;
+        this.retrievedFadeInSpeed = 0.0025;
     }
 
     drop() {
         if (this.state === STATE.IDLE || this.state === STATE.AFTERDROP) {
             this.state = STATE.ANIMATION;
             this.items = new Items(this.canvasWidth);
-            this.retrievedOpacity=0;
+            this.retrievedOpacity = 0;
         }
     }
 
@@ -39,7 +39,7 @@ export default class Case {
         if (this.state === STATE.DROPPED) {
             this.retrieved = this.items.retrieveItem();
             let newCanvasWidth = 5 * this.canvasWidth / 2.5
-            let newPosition = {x: this.canvasWidth/2 - newCanvasWidth / 10, y: 0};
+            let newPosition = {x: this.canvasWidth / 2 - newCanvasWidth / 10, y: 0};
             let newImage = this.retrieved.image.image;
             let newName = this.retrieved.rareBG.name;
             let newRarity = this.retrieved.rareBG.rarity;
@@ -55,14 +55,14 @@ export default class Case {
                 this.state = STATE.RETRIEVING;
             }
         }
-        if(this.state === STATE.RETRIEVING) {
-            this.retrievedOpacity+=deltaTime*this.retrievedFadeInSpeed;
-            if(this.retrievedOpacity>1) {
+        if (this.state === STATE.RETRIEVING) {
+            this.retrievedOpacity += deltaTime * this.retrievedFadeInSpeed;
+            if (this.retrievedOpacity > 1) {
                 this.retrievedOpacity = 1;
                 this.state = STATE.AFTERDROP;
             }
         }
-        if(this.state === STATE.AFTERDROP) {
+        if (this.state === STATE.AFTERDROP) {
             document.getElementById("dropButton").textContent = "Open Again";
         }
     }
@@ -73,8 +73,15 @@ export default class Case {
         }
         if (this.state !== STATE.RETRIEVING) {
             //rysowanie linii
+            let globAlpha = context.globalAlpha;
+            if (this.state === STATE.IDLE) {
+                context.globalAlpha = 1;
+            } else {
+                context.globalAlpha = this.items.opacity;
+            }
             context.fillStyle = "red";
             context.fillRect(this.canvasWidth / 2 - 1, 0, 2, this.canvasWidth / 2.5);
+            context.globalAlpha = globAlpha;
         }
         if (this.state === STATE.RETRIEVING) {
             let globAlpha = context.globalAlpha;
@@ -82,7 +89,7 @@ export default class Case {
             this.retrieved.draw(context);
             context.globalAlpha = globAlpha;
         }
-        if(this.state === STATE.AFTERDROP) {
+        if (this.state === STATE.AFTERDROP) {
             this.retrieved.draw(context);
         }
     }
