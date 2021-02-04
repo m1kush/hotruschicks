@@ -44,7 +44,7 @@ let nazwyMordKupisza = [
 
 function generateItems(canvasWidth) {
     let itemy = [];
-    for (let i = 0; i < 75; i++) {
+    for (let i = 0; i < 80; i++) {
         let newItem = new RandomItem();
         itemy.push(new Item(canvasWidth, {
             x: canvasWidth + i * canvasWidth / 4.5,
@@ -110,8 +110,8 @@ export default class Items {
     constructor(canvasWidth) {
         //każdy ciąg itemów ma konkretną ich ilość
         this.itemy = generateItems(canvasWidth);
-        this.speed = 75/225*canvasWidth;
-        this.deceleration = 0.08/1125*canvasWidth;
+        this.speed = 1/100*canvasWidth;
+        this.deceleration = 1/350000*canvasWidth;
         this.canvasWidth = canvasWidth;
         this.opacity=5;
         this.fadingSpeed=0.005;
@@ -144,8 +144,9 @@ export default class Items {
     }
 
     update(deltaTime) {
+        console.log(this.itemy[0].position.x);
         if(this.speed!==0) {
-            this.move(this.speed/deltaTime);
+            this.move(this.speed*deltaTime);
             this.speed-=this.deceleration*deltaTime;
             if(this.speed<0) {
                 this.speed = 0;
