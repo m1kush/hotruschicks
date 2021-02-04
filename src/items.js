@@ -144,7 +144,7 @@ export default class Items {
     }
 
     update(deltaTime) {
-        console.log(this.itemy[0].position.x);
+        //console.log(this.itemy[0].position.x);
         if(this.speed!==0) {
             this.move(this.speed*deltaTime);
             this.speed-=this.deceleration*deltaTime;
