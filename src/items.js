@@ -44,7 +44,7 @@ let nazwyMordKupisza = [
 
 function generateItems(canvasWidth) {
     let itemy = [];
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 90; i++) {
         let newItem = new RandomItem();
         itemy.push(new Item(canvasWidth, {
             x: canvasWidth + i * canvasWidth / 4.5,
