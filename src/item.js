@@ -18,9 +18,13 @@ export default class Item {
         this.rareBG.move(distance);
     }
 
-    setPosition(position) {
+    setPosition(position) { //niby działa ale po co skoro i tak aby utworzyć nowy item musisz iść naokoło
         this.position = position;
         this.image.position = position;
-        this.rareBG.position = position;
+        this.rareBG.position = {x:position.x, y:position.y+this.image.height};
+    }
+
+    scaleItem(newScale) { //nie działa btw, instrukcja kopiowania i skalowania elementów jest w case.js:43
+        return new Item(this.image.width*newScale, this.position, this.image.image, this.rareBG.name, this.rareBG.rarity, this.rareBG.rawquality, this.rareBG.qualityImage, this.rareBG.stattrak, this.rareBG.stattrakImage);
     }
 }

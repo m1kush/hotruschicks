@@ -38,6 +38,8 @@ export default class Case {
         }
         if (this.state === STATE.DROPPED) {
             this.retrieved = this.items.retrieveItem();
+            //this.retrieved.scaleItem(2);
+            // this.retrieved.setPosition({x:0, y:0});
             let newCanvasWidth = 5 * this.canvasWidth / 2.5
             let newPosition = {x: this.canvasWidth / 2 - newCanvasWidth / 10, y: 0};
             let newImage = this.retrieved.image.image;
@@ -93,5 +95,9 @@ export default class Case {
         if (this.state === STATE.AFTERDROP) {
             this.retrieved.draw(context);
         }
+    }
+
+    getRetrievedItem() {
+        return this.retrieved;
     }
 }

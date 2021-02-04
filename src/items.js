@@ -176,6 +176,6 @@ export default class Items {
     }
 
     retrieveItem() {
-        return this.itemy[Math.min(renderedItemsCount-1, Math.floor((this.canvasWidth/2-this.itemy[0].position.x)/(this.canvasWidth/4.5)))];
+        return this.itemy[Math.min(renderedItemsCount - 1, Math.floor((this.canvasWidth / 2 - this.itemy[0].position.x) / (this.canvasWidth / 4.5)))];
     }
 }
