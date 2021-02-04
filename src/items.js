@@ -21,6 +21,15 @@ let mordyKupisza = [
     document.getElementById("knif")
 ];
 
+let skracze = [
+    document.getElementById("scratches1"),
+    document.getElementById("scratches2"),
+    document.getElementById("scratches3"),
+    document.getElementById("scratches4")
+];
+
+let statTrakImg = document.getElementById("stattrak");
+
 let nazwyMordKupisza = [
     "Kupisz do wzięcia",
     "Młody Kupisz",
@@ -42,14 +51,16 @@ let nazwyMordKupisza = [
     "Rainbow Kupisz"
 ];
 
+const renderedItemsCount = 90;
+
 function generateItems(canvasWidth) {
     let itemy = [];
-    for (let i = 0; i < 90; i++) {
+    for (let i = 0; i < renderedItemsCount; i++) {
         let newItem = new RandomItem();
         itemy.push(new Item(canvasWidth, {
             x: canvasWidth + i * canvasWidth / 4.5,
             y: (canvasWidth / 2.5 - canvasWidth / 5) / 2
-        }, mordyKupisza[newItem.itemNumber], nazwyMordKupisza[newItem.itemNumber], newItem.rarity, newItem.wear, newItem.stattrak));
+        }, mordyKupisza[newItem.itemNumber], nazwyMordKupisza[newItem.itemNumber], newItem.rarity, newItem.wear, newItem.wearImage, newItem.stattrak, newItem.stattrakImage));
     }
     return itemy;
 }
@@ -91,24 +102,34 @@ class RandomItem {
                 this.itemNumber = 17;
         }
         this.wear = 5;
+        this.wearImage = null;
         rng = Math.random();
         if (rng <= 0.1471) {
             this.wear = 1;
         } else if (0.1471<rng && rng<=0.3939) {
             this.wear = 2;
+            this.wearImage = skracze[0];
         } else if (0.3939<rng && rng<=0.8257) {
             this.wear = 3;
+            this.wearImage = skracze[1];
         } else if (0.8257<rng && rng<=0.9049) {
             this.wear = 4;
+            this.wearImage = skracze[2];
+        }
+        if(this.wear === 5) {
+            this.wearImage = skracze[3];
         }
         this.stattrak = Math.random() <= 0.1;
+        this.stattrakImage = null;
+        if(this.stattrak) {
+            this.stattrakImage = statTrakImg;
+        }
     }
 }
 
 
 export default class Items {
     constructor(canvasWidth) {
-        //każdy ciąg itemów ma konkretną ich ilość
         this.itemy = generateItems(canvasWidth);
         this.speed = 1/100*canvasWidth;
         this.deceleration = 1/350000*canvasWidth;
@@ -155,6 +176,6 @@ export default class Items {
     }
 
     retrieveItem() {
-        return this.itemy[Math.floor((this.canvasWidth/2-this.itemy[0].position.x)/(this.canvasWidth/4.5))];
+        return this.itemy[Math.min(renderedItemsCount-1, Math.floor((this.canvasWidth/2-this.itemy[0].position.x)/(this.canvasWidth/4.5)))];
     }
 }

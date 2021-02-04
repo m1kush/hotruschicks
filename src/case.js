@@ -44,8 +44,10 @@ export default class Case {
             let newName = this.retrieved.rareBG.name;
             let newRarity = this.retrieved.rareBG.rarity;
             let newQuality = this.retrieved.rareBG.rawquality;
+            let newQualityImage = this.retrieved.image.qualityImage;
             let newStattrak = this.retrieved.rareBG.stattrak;
-            this.retrieved = new Item(newCanvasWidth, newPosition, newImage, newName, newRarity, newQuality, newStattrak);
+            let newStattrakImage = this.retrieved.image.stattrakImage;
+            this.retrieved = new Item(newCanvasWidth, newPosition, newImage, newName, newRarity, newQuality, newQualityImage, newStattrak, newStattrakImage);
             this.state = STATE.FADEOUT;
         }
         if (this.state === STATE.FADEOUT) {
