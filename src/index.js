@@ -1,4 +1,5 @@
 import Case from "./case.js";
+import { playSound } from './sounds.js';
 
 function gameLoop(timestamp) {
     //deltatime
@@ -17,6 +18,7 @@ function gameLoop(timestamp) {
 }
 
 function drop() {
+    playSound('open');
     skrzynka.drop();
 }
 
