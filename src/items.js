@@ -131,8 +131,8 @@ class RandomItem {
 export default class Items {
     constructor(canvasWidth) {
         this.itemy = generateItems(canvasWidth);
-        this.speed = 1/100*canvasWidth;
-        this.deceleration = 1/350000*canvasWidth;
+        this.speed = 1/650*canvasWidth;
+        this.deceleration = 1/5700000*canvasWidth;
         this.canvasWidth = canvasWidth;
         this.opacity=5;
         this.fadingSpeed=0.005;
