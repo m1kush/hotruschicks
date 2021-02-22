@@ -18,8 +18,11 @@ function gameLoop(timestamp) {
 }
 
 function drop() {
-    playSound('open');
-    skrzynka.drop();
+    if(skrzynka.notOpening())
+    {
+        playSound('open');
+        skrzynka.drop();
+    }
 }
 
 //canvas setup

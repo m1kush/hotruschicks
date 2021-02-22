@@ -100,4 +100,8 @@ export default class Case {
     getRetrievedItem() {
         return this.retrieved;
     }
+
+    notOpening() {
+        return this.state === STATE.IDLE || this.state === STATE.AFTERDROP;
+    }
 }
