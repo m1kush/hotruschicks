@@ -1,5 +1,6 @@
 import Items from "./items.js";
 import Item from "./item.js";
+import {update_texts} from "./jquery_i18n/main-jquery_i18n.js";
 
 const STATE = {
     IDLE: 0,
@@ -66,7 +67,8 @@ export default class Case {
             }
         }
         if (this.state === STATE.AFTERDROP) {
-            document.getElementById("dropButton").textContent = "Open Again";
+            document.getElementById("dropButton").dataset.i18n = "main-open-again";
+            update_texts();
         }
     }
 

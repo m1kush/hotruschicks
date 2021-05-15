@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <title>hotruschicks.fun - best русские girls!</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="src/style.css" type="text/css"/>
     <link rel="icon" href="assets/kupisze/knif.png">
-    <script data-ad-client="pub-9958872421387872" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!--    <script data-ad-client="pub-9958872421387872" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
     <script src="src/sounds.js" type="text/javascript"></script>
+    <script src="src/common/jquery.js"></script>
+    <script src="src/jquery_i18n/CLDRPluralRuleParser.js"></script>
+    <script src="src/jquery_i18n/jquery.i18n.js"></script>
+    <script src="src/jquery_i18n/jquery.i18n.messagestore.js"></script>
+    <script src="src/jquery_i18n/jquery.i18n.fallbacks.js"></script>
+    <script src="src/jquery_i18n/jquery.i18n.language.js"></script>
+    <script src="src/jquery_i18n/jquery.i18n.parser.js"></script>
+    <script src="src/jquery_i18n/jquery.i18n.emitter.js"></script>
+    <script src="src/jquery_i18n/jquery.i18n.emitter.bidi.js"></script>
+    <script src="src/jquery_i18n/main-jquery_i18n.js"></script>
 </head>
 <body>
 <div id="header">
-    <div id="ngl">hotruschicks.fun</div>
+    <div id="ngl" data-i18n="main-domain">hotruschicks.fun</div>
 </div>
 <div id="header2">
+    <a href="#" class="lang-switch" data-locale="en">English</a> <img src="assets/img/gb.svg" height="12"> |
+    <a href="#" class="lang-switch" data-locale="ru">Русский</a> <img src="assets/img/ru.svg" height="12">
     <div class="bok"></div>
-    <div id="srodek">claim your dream hot russian chick</div>
+    <div id="srodek" data-i18n="main-claim">claim your dream hot russian chick</div>
     <div class="bok">
         <button id="steam"><a href="logintosteam.html"><img id="steamlogin" src="assets/img/sign.png" alt="steambutton"></a></button>
     </div>
@@ -23,10 +35,10 @@
     <canvas id="gameScreen" width="800" height="400"></canvas>
 </div>
 <div id="przyciski">
-    <button id="dropButton">Open</button>
+    <button id="dropButton" data-i18n="main-open">Open</button>
 </div>
 <div id="footLettuce">
-    <span>Copyright(R) 2077 by <a id="scamlink" href="https://www.cdprojekt.com/">CD Pr0dj3cT R3D (TM) (R) (XD)</a></span>
+    <span>Copyright(R) 2077 by <a id="scamlink" data-i18n="main-scamlink" href="https://www.cdprojekt.com/">CD Pr0dj3cT R3D (TM) (R) (XD)</a></span>
 </div>
 
 <!--MORDY KUPISZA-->

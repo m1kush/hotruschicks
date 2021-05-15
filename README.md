@@ -5,5 +5,5 @@ good seit pls visit\
 TODO:
 - [x] Add SFX (m1kush)
 - [ ] Add chain animation (B1rtek)
-- [ ] Add support for Russian language (m1kush)
+- [x] Add support for Russian language (m1kush)
 - [ ] Add Web API image support (B1rtek)

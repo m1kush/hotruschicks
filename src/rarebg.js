@@ -7,11 +7,11 @@ function processRarity(rarity) {
 }
 
 function processQuality(quality) {
-    if(quality === 1) return "Factory New";
-    if(quality === 2) return "Minimal Wear";
-    if(quality === 3) return "Field-Tested";
-    if(quality === 4) return "Well-Worn";
-    if(quality === 5) return "Battle-Scarred";
+    if(quality === 1) return $.i18n("case-factory-new");
+    if(quality === 2) return $.i18n("case-minimal-wear");
+    if(quality === 3) return $.i18n("case-field-tested");
+    if(quality === 4) return $.i18n("case-well-worn");
+    if(quality === 5) return $.i18n("case-battle-scarred");
 }
 
 export default class RareBG {
@@ -40,7 +40,7 @@ export default class RareBG {
         context.textAlign = "left";
         let outputName = this.name;
         if(this.stattrak) {
-            outputName+=" (StatTrak)";
+            outputName += " " + "(" + $.i18n("case-stattrak") + ")";
         }
         context.fillText(outputName, this.position.x+fontSize/2, this.position.y+fontSize*1.2);
         context.fillStyle = "white";

@@ -31,24 +31,24 @@ let skracze = [
 let statTrakImg = document.getElementById("stattrak");
 
 let nazwyMordKupisza = [
-    "Kupisz do wzięcia",
-    "Młody Kupisz",
-    "Kupisz z colą",
-    "Kupisz programista",
-    "Rebus z kupiszem",
-    "WeirdKupisz",
-    "Spalony Kupisz",
-    "Kupisz Blond",
-    "Imprezowy Kupisz",
-    "Demot Kupisz",
-    "Morda Kupisza MK 1",
-    "EzKupisz",
-    "Kupisz na koniu",
-    "Selfie Kupisza",
-    "Adam Kupisz-Małysz",
-    "Kupisz UwU",
-    "Kupisz OwO",
-    "Rainbow Kupisz"
+    "case-kupisz1",
+    "case-kupisz2",
+    "case-kupisz3",
+    "case-kupisz4",
+    "case-kupisz5",
+    "case-kupisz6",
+    "case-kupisz7",
+    "case-kupisz8",
+    "case-kupisz9",
+    "case-kupisz10",
+    "case-kupisz11",
+    "case-kupisz12",
+    "case-kupisz13",
+    "case-kupisz14",
+    "case-kupisz15",
+    "case-kupisz16",
+    "case-kupisz17",
+    "case-kupisz18"
 ];
 
 const renderedItemsCount = 90;
@@ -60,7 +60,7 @@ function generateItems(canvasWidth) {
         itemy.push(new Item(canvasWidth, {
             x: canvasWidth + i * canvasWidth / 4.5,
             y: (canvasWidth / 2.5 - canvasWidth / 5) / 2
-        }, mordyKupisza[newItem.itemNumber], nazwyMordKupisza[newItem.itemNumber], newItem.rarity, newItem.wear, newItem.wearImage, newItem.stattrak, newItem.stattrakImage));
+        }, mordyKupisza[newItem.itemNumber], $.i18n(nazwyMordKupisza[newItem.itemNumber]), newItem.rarity, newItem.wear, newItem.wearImage, newItem.stattrak, newItem.stattrakImage));
     }
     return itemy;
 }

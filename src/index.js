@@ -18,9 +18,9 @@ function gameLoop(timestamp) {
 }
 
 function drop() {
+    playSound('open');
     if(skrzynka.notOpening())
     {
-        playSound('open');
         skrzynka.drop();
     }
 }
